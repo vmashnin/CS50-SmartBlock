@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Opening History</h1>
+
+<table>
+    <tr>
+        <th>Resident</th>
+        <th>Apartment</th>
+        <th>Date and Time</th>
+    </tr>
+
+    {% for event in events %}
+        <tr>
+            <td>{{ event.name }}</td>
+            <td>{{ event.apartment }}</td>
+            <td>{{ event.timestamp }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

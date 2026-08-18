@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Change Password</h1>
+
+<form action="/settings" method="post">
+
+    <input name="current_password" placeholder="Current password" type="password">
+
+    <input name="new_password" placeholder="New password" type="password">
+
+    <input name="confirmation" placeholder="Confirm new password" type="password">
+
+
+    <button class="btn btn-primary" type="submit">
+        Change Password
+    </button>
+
+</form>
+
+{% endblock %}

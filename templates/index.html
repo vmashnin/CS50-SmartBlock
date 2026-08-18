@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>SmartBlock</h1>
+
+<!-- AI assistance: ChatGPT helped me implement the 1-second press-and-hold
+     button behavior and visual cooldown countdown. -->
+
+<form id="open-form" action="/open" method="post">
+
+    <button id="open-button"
+            type="button"
+            data-cooldown="{{ cooldown | default(0) }}">
+
+        <span id="button-fill"></span>
+        <span id="button-text">OPEN</span>
+
+    </button>
+
+</form>
+
+<p class="hint">
+    Hold button for 1 second to open
+</p>
+
+
+<script>
+    const button = document.getElementById("open-button");
+    const form = document.getElementById("open-form");
+    const fill = document.getElementById("button-fill");
+    const buttonText = document.getElementById("button-text");
+
+    let holdTimer;
+    let opening = false;
+    let cooldown = parseInt(button.dataset.cooldown);
+
+    if (cooldown > 0) {
+        opening = true;
+        button.disabled = true;
+        buttonText.textContent = "WAIT " + cooldown;
+
+        const countdownTimer = setInterval(function() {
+            cooldown--;
+
+            if (cooldown > 0) {
+                buttonText.textContent = "WAIT " + cooldown;
+            }
+            else {
+                clearInterval(countdownTimer);
+                buttonText.textContent = "OPEN BARRIER";
+                button.disabled = false;
+                opening = false;
+
+                fill.style.transition = "none";
+                fill.style.width = "0%";
+            }
+        }, 1000);
+    }
+
+
+    button.addEventListener("pointerdown", function() {
+
+        if (opening) {
+            return;
+        }
+
+        fill.style.transition = "width 1s linear";
+        fill.style.width = "100%";
+
+        holdTimer = setTimeout(function() {
+
+            opening = true;
+            buttonText.textContent = "OPENING...";
+
+            form.submit();
+
+        }, 1000);
+
+    });
+
+
+    function cancelHold() {
+
+        if (opening) {
+            return;
+        }
+
+        clearTimeout(holdTimer);
+
+        fill.style.transition = "none";
+        fill.style.width = "0%";
+
+    }
+
+
+    button.addEventListener("pointerup", cancelHold);
+    button.addEventListener("pointerleave", cancelHold);
+    button.addEventListener("pointercancel", cancelHold);
+
+</script>
+
+{% endblock %}

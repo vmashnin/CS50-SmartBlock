@@ -1,0 +1,257 @@
+/* AI assistance: ChatGPT helped me create the basic mobile-friendly
+   visual styling for the SmartBlock interface. */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f6f7;
+    color: #222;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    background-color: #14213D;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+
+/* PAGE LAYOUT */
+
+main {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #14213D;
+}
+
+h2 {
+    margin-top: 40px;
+    color: #14213D;
+}
+
+
+/* FORMS */
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+/* BUTTON SYSTEM */
+
+button,
+.btn {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+    border: none;
+
+    text-decoration: none;
+}
+
+
+/* NAV BUTTONS */
+
+nav .btn {
+    background-color: #14213D;
+    color: white;
+}
+
+nav .btn:hover {
+    background-color: #0d1629;
+}
+
+
+/* PRIMARY BUTTON */
+
+.btn-primary {
+    background-color: #14213D;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d1629;
+}
+
+
+/* SUCCESS BUTTON */
+
+.btn-success {
+    background-color: #2E7D5B;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #236246;
+}
+
+
+/* WARNING BUTTON */
+
+.btn-warning {
+    background-color: #D69E2E;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #b37f1e;
+}
+
+
+/* DANGER BUTTON */
+
+.btn-danger {
+    background-color: #9B2C2C;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #7a2020;
+}
+
+
+/* TABLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #e8edf3;
+    color: #14213D;
+}
+
+
+/* MAIN BARRIER BUTTON */
+
+#open-button {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 420px;
+    height: 120px;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #2E7D5B;
+    color: white;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#open-button:hover {
+    background-color: #236246;
+}
+
+#open-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+#button-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 0%;
+
+    background-color: rgba(255,255,255,0.25);
+
+    pointer-events: none;
+}
+
+#button-text {
+    position: relative;
+}
+
+
+/* ADMIN MENU BUTTONS */
+
+.admin-nav a {
+    display: block;
+    margin: 15px auto;
+    max-width: 250px;
+}
+
+.hint {
+    margin-top: 15px;
+    color: #666;
+    font-size: 15px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 7px;
+    }
+
+    input {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #open-button {
+        height: 140px;
+        font-size: 26px;
+    }
+}

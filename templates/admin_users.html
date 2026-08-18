@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Manage Residents</h1>
+
+<table>
+
+    <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Apartment</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+
+    {% for user in users %}
+
+        <tr>
+
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.apartment }}</td>
+
+            <td>
+                {% if user.is_active %}
+                    Active
+                {% else %}
+                    Disabled
+                {% endif %}
+            </td>
+
+
+            <td>
+
+                <form action="/admin/toggle-user" method="post">
+
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                    {% if user.is_active %}
+
+                        <button class="btn btn-warning" type="submit">
+                            Disable
+                        </button>
+
+                    {% else %}
+
+                        <button class="btn btn-success" type="submit">
+                            Enable
+                        </button>
+
+                    {% endif %}
+
+                </form>
+
+
+                <form action="/admin/delete-user" method="post">
+
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                    <button class="btn btn-danger" type="submit">
+                        Delete
+                    </button>
+
+                </form>
+
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

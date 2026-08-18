@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Create Resident</h1>
+
+<form action="/admin/create" method="post">
+
+    <input name="name" placeholder="Name">
+
+    <input name="username" placeholder="Username">
+
+    <input name="apartment" placeholder="Apartment">
+
+    <button class="btn btn-primary" type="submit">
+        Create Resident
+    </button>
+
+</form>
+
+
+{% if temporary_password %}
+
+    <p>
+        Temporary password for <strong>{{ new_username }}</strong>:
+        <strong>{{ temporary_password }}</strong>
+    </p>
+
+{% endif %}
+
+
+{% endblock %}
