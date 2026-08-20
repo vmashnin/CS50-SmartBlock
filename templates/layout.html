@@ -2,6 +2,7 @@
 
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SmartBlock</title>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
@@ -10,15 +11,19 @@
     <body>
 
         <nav>
-            <a class="btn btn-primary" href="/">Main</a>
-            <a class="btn btn-primary" href="/history">History</a>
-            <a class="btn btn-primary" href="/settings">Change Password</a>
+            {% if session.get("user_id") %}
 
-            {% if is_admin %}
-                <a class="btn btn-primary" href="/admin">Admin</a>
+                <a class="btn btn-primary" href="/">Main</a>
+                <a class="btn btn-primary" href="/history">History</a>
+                <a class="btn btn-primary" href="/settings">Change Password</a>
+
+                {% if is_admin %}
+                    <a class="btn btn-primary" href="/admin">Admin</a>
+                {% endif %}
+
+                <a class="btn btn-primary" href="/logout">Log Out</a>
+
             {% endif %}
-
-            <a class="btn btn-primary" href="/logout">Log Out</a>
         </nav>
 
         <main>

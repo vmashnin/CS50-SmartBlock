@@ -1,5 +1,10 @@
-<form action="/login" method="post">
+{% extends "layout.html" %}
 
+{% block main %}
+
+<h1>SmartBlock</h1>
+
+<form action="/login" method="post">
     <input name="username" placeholder="Username" type="text">
 
     <input name="password" placeholder="Password" type="password">
@@ -7,5 +12,6 @@
     <button class="btn btn-primary" type="submit">
         Log In
     </button>
-
 </form>
+
+{% endblock %}
