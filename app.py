@@ -395,7 +395,9 @@ def history():
     else:
         events = db.execute(
             """
-            SELECT events.timestamp, users.name, users.apartment
+            SELECT datetime(events.timestamp, '+5 hours') AS timestamp,
+            users.name,
+            users.apartment
             FROM events
             JOIN users ON events.user_id = users.id
             WHERE events.user_id = ?
