@@ -42,6 +42,26 @@ nav a:hover {
 }
 
 
+/* PAGE LAYOUT */
+
+main {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #14213D;
+}
+
+h2 {
+    margin-top: 40px;
+    color: #14213D;
+}
+
+
 /* FORMS */
 
 form {
